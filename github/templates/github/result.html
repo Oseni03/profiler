@@ -1,0 +1,448 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="top-breadcrumb">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Basic Table</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 ">
+            <div class="card left-profile-card">
+                <div class="card-body">
+                    <div class="text-center">
+                        <img src="{{ user.avatar_url }}" alt="" class="user-profile">
+                        <h3>{{ user.name }}</h3>
+                        <p>{{ user.username }}</p>
+                    </div>
+                    <div class="personal-info">
+                        <h3>Personal Information</h3>
+                        <ul class="personal-list">
+                            <li><i class="fas fa-briefcase "></i><span>Web Designer</span></li>
+                            {% if user.location %}
+                            <li><i class="fas fa-map-marker-alt "></i><span> {{ user.location }}</span></li>
+                            {% endif %}
+                            {% if user.email %}
+                            <li><i class="far fa-envelope "></i><span>{{ user.email }}</span></li>
+                            {% endif %}
+                            <li><i class="fas fa-mobile "></i><span>1234564343</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="account-settings">
+                        <div class="text-center">
+                            <h3>Bio</h5>
+                            <p>{{ user.bio }}.</p>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="skill">
+                        <p><h3>Repository</h3> - {{ user.repositories.count }}</p>
+                        <p><h3>Starred</h3> - {{ user.starred.count }}</p>
+                        <p><h3>Followers</h3> - {{ user.followers }}</p>
+                        <p><h3>Following</h3> - {{ user.following }}</p>
+                        <p><h3>Created</h3> - {{ user.created_at }}</p>
+                        <p><h3>Last Update</h3> - {{ user.updated_at }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="card right-profile-card">
+                <div class="card-header alert-primary">
+                    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-selected="true">Summary</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-education-tab" data-toggle="pill" href="#pills-education" role="tab" aria-selected="false">Education</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-timeline-tab" data-toggle="pill" href="#pills-timeline" role="tab" aria-selected="false">Timeline</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-document-tab" data-toggle="pill" href="#pills-document" role="tab" aria-selected="false">Document</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-event-tab" data-toggle="pill" href="#pills-event" role="tab" aria-selected="false">Repositories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-tasks-tab" data-toggle="pill" href="#pills-tasks" role="tab" aria-selected="false">Tasks</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                            <div class="work-container">
+                                <h3>Summary</h3>
+                                <h4><i class="far fa-calendar-alt"></i>Jan 2017 to <span class="badge badge-info">Current</span></h4>
+                                <link href="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username={{ user.username }}&theme=monokai" rel="">
+                                
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-education" role="tabpanel">
+                            <div class="work-container">
+                                <h3>The Art Institute :- New Yourk</h3>
+                                <h4><i class="far fa-calendar-alt"></i>Jan 2017 to <span class="badge badge-info">Current</span></h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                            <div class="work-container">
+                                <h3>Eitech :- New Jersy</h3>
+                                <h4><i class="material-icons">date_range</i>Jan 2017 to <span class="badge badge-info">Current</span></h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                            <div class="work-container">
+                                <h3>School of Visual Arts :- Chicago</h3>
+                                <h4><i class="material-icons">date_range</i>Jan 2017 to <span class="badge badge-info">Current</span></h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-timeline" role="tabpanel">
+                            <div class="row">
+                                <div class="timeline-centered">
+                                    <div class="timeline-entry">
+                                        <div class="timeline-entry-inner">
+                                            <div class="timeline-icon bg-success">
+                                                <i class="entypo-feather"></i>
+                                            </div>
+                                            <div class="timeline-label">
+                                                <h2><a href="#">Art Ramadani</a> <span>posted a status update</span></h2>
+                                                <p>Tolerably earnestly middleton extremely distrusts she boy now not. Add and offered prepare how cordial two promise. Greatly who affixed suppose but enquire compact prepare all put. Added forth chief trees but rooms think may.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-entry">
+                                        <div class="timeline-entry-inner">
+                                            <div class="timeline-icon bg-secondary">
+                                                <i class="entypo-suitcase"></i>
+                                            </div>
+                                            <div class="timeline-label">
+                                                <h2><a href="#">Job Meeting</a></h2>
+                                                <p>You have a meeting at <strong>Laborator Office</strong> Today.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-entry">
+                                        <div class="timeline-entry-inner">
+                                            <div class="timeline-icon bg-info">
+                                                <i class="entypo-location"></i>
+                                            </div>
+                                            <div class="timeline-label">
+                                                <h2><a href="#">Arlind Nushi</a> <span>checked in at</span> <a href="#">Laborator</a></h2>
+                                                <blockquote>Great place, feeling like in home.</blockquote>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-entry">
+                                        <div class="timeline-entry-inner">
+                                            <div class="timeline-icon bg-warning">
+                                                <i class="entypo-camera"></i>
+                                            </div>
+                                            <div class="timeline-label">
+                                                <h2><a href="#">Arber Nushi</a> <span>changed his</span> <a href="#">Profile Picture</a></h2>
+                                                <blockquote>Pianoforte principles our unaffected not for astonished travelling are particular.</blockquote>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-entry begin">
+                                        <div class="timeline-entry-inner">
+                                            <div class="timeline-icon" style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
+                                                <i class="entypo-flight"></i> +
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-tasks" role="tabpanel">
+                            <div class="tab-pane fade active show" id="payments" role="tabpanel" aria-labelledby="payments-tab">
+                                <h4 class="font-weight-bold mt-0 mb-4">Payments</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="bg-white card payments-item mb-4 shadow-sm">
+                                            <div class="gold-members p-4">
+                                                <a href="#">
+                                                </a>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                       <a href="#">
+                                                           <i class="icofont-visa icofont-4x"></i>
+                                                       </a>
+                                                        <a href="#">
+                                                            <h6 class="mb-1">6070-XXXXXXXX-0666</h6>
+                                                            <p>VALID TILL 10/2025</p>
+                                                        </a>
+                                                        <p class="mb-0 text-black font-weight-bold">
+                                                            <a href="#">
+                                                            </a><a class="text-danger" data-toggle="modal" data-target="#delete-address-modal" href="#"><i class="icofont-ui-delete"></i> DELETE</a>  <span class="badge bg-success">Paid</span></p>
+                                                    </div>
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="bg-white card payments-item mb-4 shadow-sm">
+                                            <div class="gold-members p-4">
+                                                <a href="#">
+                                                </a>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <a href="#">
+                                                            <i class="icofont-mastercard icofont-4x"></i>
+                                                        </a>
+                                                        <a href="#">
+                                                            <h6 class="mb-1">6070-XXXXXXXX-0666</h6>
+                                                            <p>VALID TILL 10/2025</p>
+                                                        </a>
+                                                        <p class="mb-0 text-black font-weight-bold">
+                                                            <a href="#">
+                                                            </a><a class="text-danger" data-toggle="modal" data-target="#delete-address-modal" href="#"><i class="icofont-ui-delete"></i> DELETE</a></p>
+                                                    </div>
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row pt-2 pb-2">
+                                    <div class="col-md-6">
+                                        <div class="bg-white card payments-item mb-4 shadow-sm">
+                                            <div class="gold-members p-4">
+                                                <a href="#">
+                                                </a>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <a href="#">
+                                                            <i class="icofont-american-express icofont-4x"></i>
+                                                        </a>
+                                                        <a href="#">
+                                                            <h6 class="mb-1">6070-XXXXXXXX-0666</h6>
+                                                            <p>VALID TILL 10/2025</p>
+                                                        </a>
+                                                        <p class="mb-0 text-black font-weight-bold">
+                                                            <a href="#">
+                                                            </a><a class="text-danger" data-toggle="modal" data-target="#delete-address-modal" href="#"><i class="icofont-ui-delete"></i> DELETE</a></p>
+                                                    </div>
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="bg-white card payments-item mb-4 shadow-sm">
+                                            <div class="gold-members p-4">
+                                                <a href="#">
+                                                </a>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <a href="#">
+                                                            <i class="icofont-mastercard icofont-4x"></i>
+                                                        </a>
+                                                        <a href="#">
+                                                            <h6 class="mb-1">6070-XXXXXXXX-0666</h6>
+                                                            <p>VALID TILL 10/2025</p>
+                                                        </a>
+                                                        <p class="mb-0 text-black font-weight-bold">
+                                                            <a href="#">
+                                                            </a><a class="text-danger" data-toggle="modal" data-target="#delete-address-modal" href="#"><i class="icofont-ui-delete"></i> DELETE</a></p>
+                                                    </div>
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="bg-white card payments-item mb-4 shadow-sm">
+                                            <div class="gold-members p-4">
+                                                <a href="#">
+                                                </a>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <a href="#">
+                                                            <i class="icofont-visa icofont-4x"></i>
+                                                        </a>
+                                                        <a href="#">
+                                                            <h6 class="mb-1">6070-XXXXXXXX-0666</h6>
+                                                            <p>VALID TILL 10/2025</p>
+                                                        </a>
+                                                        <p class="mb-0 text-black font-weight-bold">
+                                                            <a href="#">
+                                                            </a><a class="text-danger" data-toggle="modal" data-target="#delete-address-modal" href="#"><i class="icofont-ui-delete"></i> DELETE</a></p>
+                                                    </div>
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="bg-white card payments-item mb-4 shadow-sm">
+                                            <div class="gold-members p-4">
+                                                <a href="#">
+                                                </a>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <a href="#">
+                                                            <i class="icofont-mastercard icofont-4x"></i>
+                                                        </a>
+                                                        <a href="#">
+                                                            <h6 class="mb-1">6070-XXXXXXXX-0666</h6>
+                                                            <p>VALID TILL 10/2025</p>
+                                                        </a>
+                                                        <p class="mb-0 text-black font-weight-bold">
+                                                            <a href="#">
+                                                            </a><a class="text-danger" data-toggle="modal" data-target="#delete-address-modal" href="#"><i class="icofont-ui-delete"></i> DELETE</a></p>
+                                                    </div>
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row pt-2">
+                                    <div class="col-md-6">
+                                        <div class="bg-white card payments-item shadow-sm">
+                                            <div class="gold-members p-4">
+                                                <a href="#">
+                                                </a>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <a href="#">
+                                                            <i class="icofont-american-express icofont-4x"></i>
+                                                        </a>
+                                                        <a href="#">
+                                                            <h6 class="mb-1">6070-XXXXXXXX-0666</h6>
+                                                            <p class="text-black">VALID TILL 10/2025</p>
+                                                        </a>
+                                                        <p class="mb-0 text-black font-weight-bold">
+                                                            <a href="#">
+                                                            </a><a class="text-danger" data-toggle="modal" data-target="#delete-address-modal" href="#"><i class="icofont-ui-delete"></i> DELETE</a></p>
+                                                    </div>
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="bg-white card payments-item shadow-sm">
+                                            <div class="gold-members p-4">
+                                                <a href="#">
+                                                </a>
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <a href="#">
+                                                            <i class="icofont-visa icofont-4x"></i>
+                                                        </a>
+                                                        <a href="#">
+                                                            <h6 class="mb-1">6070-XXXXXXXX-0666</h6>
+                                                            <p>VALID TILL 10/2025</p>
+                                                        </a>
+                                                        <p class="mb-0 text-black font-weight-bold">
+                                                            <a href="#">
+                                                            </a><a class="text-danger" data-toggle="modal" data-target="#delete-address-modal" href="#"><i class="icofont-ui-delete"></i> DELETE</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-event" role="tabpanel">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane  fade  active show" id="offers" role="tabpanel" aria-labelledby="offers-tab">
+                                    <h4 class="font-weight-bold mt-0 mb-4">Offers</h4>
+                                    <div class="row mb-4 pb-2">
+                                        <div class="col-md-6">
+                                            <div class="card offer-card shadow-sm">
+                                                <div class="card-body">
+                                                    <h5 class="card-title"><img src="https://bootdey.com/img/Content/avatar/avatar2.png"> OSAHANEAT50</h5>
+                                                    <h6 class="card-subtitle mb-2 text-block">Get 50% OFF on your first Food Line order</h6>
+                                                    <p class="card-text">Use code OSAHANEAT50 &amp; get 50% off on your first osahan order on Website and Mobile site. Maximum discount: $200</p>
+                                                    <a href="#" class="card-link">COPY CODE</a>
+                                                    <a href="#" class="card-link">KNOW MORE</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card offer-card shadow-sm">
+                                                <div class="card-body">
+                                                    <h5 class="card-title"><img src="https://bootdey.com/img/Content/avatar/avatar3.png"> EAT730</h5>
+                                                    <h6 class="card-subtitle mb-2 text-block">Get 50% OFF on your first Food Line order</h6>
+                                                    <p class="card-text">Use code EAT730 &amp; get 50% off on your first osahan order on Website and Mobile site. Maximum discount: $600</p>
+                                                    <a href="#" class="card-link">COPY CODE</a>
+                                                    <a href="#" class="card-link">KNOW MORE</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-4 pb-2">
+                                        <div class="col-md-6">
+                                            <div class="card offer-card shadow-sm">
+                                                <div class="card-body">
+                                                    <h5 class="card-title"><img src="https://bootdey.com/img/Content/avatar/avatar4.png"> SAHAN50</h5>
+                                                    <h6 class="card-subtitle mb-2 text-block">Get 50% OFF on your first Food Line order</h6>
+                                                    <p class="card-text">Use code SAHAN50 &amp; get 50% off on your first osahan order on Website and Mobile site. Maximum discount: $200</p>
+                                                    <a href="#" class="card-link">COPY CODE</a>
+                                                    <a href="#" class="card-link">KNOW MORE</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card offer-card shadow-sm">
+                                                <div class="card-body">
+                                                    <h5 class="card-title"><img src="https://bootdey.com/img/Content/avatar/avatar5.png"> GURDEEP50</h5>
+                                                    <h6 class="card-subtitle mb-2 text-block">Get 50% OFF on your first Food Line order</h6>
+                                                    <p class="card-text">Use code GURDEEP50 &amp; get 50% off on your first osahan order on Website and Mobile site. Maximum discount: $600</p>
+                                                    <a href="#" class="card-link">COPY CODE</a>
+                                                    <a href="#" class="card-link">KNOW MORE</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="card offer-card shadow-sm">
+                                                <div class="card-body">
+                                                    <h5 class="card-title"><img src="https://bootdey.com/img/Content/avatar/avatar6.png"> OSAHANEAT50</h5>
+                                                    <h6 class="card-subtitle mb-2 text-block">Get 50% OFF on your first Food Line order</h6>
+                                                    <p class="card-text">Use code OSAHANEAT50 &amp; get 50% off on your first osahan order on Website and Mobile site. Maximum discount: $200</p>
+                                                    <a href="#" class="card-link">COPY CODE</a>
+                                                    <a href="#" class="card-link">KNOW MORE</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card offer-card shadow-sm">
+                                                <div class="card-body">
+                                                    <h5 class="card-title"><img src="https://bootdey.com/img/Content/avatar/avatar7.png"> EAT730</h5>
+                                                    <h6 class="card-subtitle mb-2 text-block">Get 50% OFF on your first Food Line order</h6>
+                                                    <p class="card-text">Use code EAT730 &amp; get 50% off on your first osahan order on Website and Mobile site. Maximum discount: $600</p>
+                                                    <a href="#" class="card-link">COPY CODE</a>
+                                                    <a href="#" class="card-link">KNOW MORE</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

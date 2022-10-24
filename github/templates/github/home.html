@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      <form action="." class="form-group">
+        <input type="text" name="username" class="form-control" placeholder="Enter GitHub username">
+        <div class="d-flex align-items-center justify-content-center mb-3">
+          <button type="submit" class="btn btn-secondary">Search</button>
+        </div>
+      </form>
+    </div>
+  </section><!-- End Hero -->
+{% endblock %}
